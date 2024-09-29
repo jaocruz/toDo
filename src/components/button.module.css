@@ -1,0 +1,24 @@
+.createBttn{
+   border: 0;
+   outline: 0;
+   cursor: pointer;
+
+   display: flex;
+   align-items: center;
+
+   gap: 0.5rem;
+   padding: 1rem;
+   border-radius: 0.5rem;
+
+   font-weight: bold;
+   font-size: 0.875rem;
+
+   color: var(--gray-100);
+   background: var(--blue-dark);
+
+   transition: background 0.1s ease-in-out;
+}
+
+.createBttn:hover{
+   background: var(--blue);
+}

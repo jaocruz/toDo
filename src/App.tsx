@@ -5,6 +5,7 @@ import styles from "./app.module.css"
 import toDoLogo from "./assets/rocket.svg"
 
 import { Input } from "./components/input"
+import { Button } from "./components/button"
 
 export function App(){
   return(
@@ -16,6 +17,7 @@ export function App(){
 
       <div className={styles.addItem}>
         <Input/>
+        <Button/>
       </div>
     </div>
   )

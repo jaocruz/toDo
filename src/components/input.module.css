@@ -1,7 +1,9 @@
 .inputBackground{
+   width: 100%;
    font-size: 1rem;
    border-radius: 0.5rem;
    background: var(--gray-500);
+   border: 1px solid var(--gray-700);
 }
 
 .inputBackground input{
@@ -16,7 +18,7 @@
 }
 
 .inputBackground:focus-within{
-   outline: 1px solid var(--purple-dark);
+   border: 1px solid var(--purple-dark);
 }
 
 .inputBackground:focus-within input{

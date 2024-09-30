@@ -3,18 +3,18 @@ import styles from "./task.module.css"
 import { CheckBox } from "./checkbox"
 import { ButtonIcon } from "./buttonIcon"
 
-import { useState } from "react"
-
 interface TaskProps{
+   taskId:number
+   isDone: boolean
    taskName: string
    onRemoveTask: (task: string) => void
+   onToggleIsTaskCompleted: (taskId: number) => void
 }
 
-export function Task({ taskName, onRemoveTask }: TaskProps){
-   const [isDone, setIsDone] = useState(false)
+export function Task({ taskName, taskId, isDone, onRemoveTask, onToggleIsTaskCompleted }: TaskProps){
 
    function handleIsDone(){
-      setIsDone(!isDone)
+      onToggleIsTaskCompleted(taskId)
    }
 
    function handleRemoveTask(){

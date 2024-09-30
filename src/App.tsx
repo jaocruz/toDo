@@ -15,16 +15,19 @@ import { useState } from "react"
 const tasksToDo = [
   {
     id: 1,
+    isDone: false,
     name: "pegar dados da task"
   },
 
   {
     id: 2,
+    isDone: false,
     name: "terminar desafio"
   },
 
   {
     id: 3,
+    isDone: false,
     name: "enviar repositório"
   }
 ]
@@ -32,9 +35,24 @@ const tasksToDo = [
 export function App(){
   const [tasks, setTasks] = useState(tasksToDo)
 
+  const completedTasks = tasks.filter(task => task.isDone).length
+
   function removeTask(taskToDelete: string){
     const tasksWithoutDeleteOne = tasks.filter(task => task.name !== taskToDelete)
     setTasks(tasksWithoutDeleteOne)
+  }
+
+  function toggleIsTaskCompleted(taskId: number){
+    const updatedTasks = tasks.map(task => {
+      if(task.id === taskId){
+        return {...task, isDone: !task.isDone}
+      }
+
+      return task
+    })
+
+    setTasks(updatedTasks)
+    console.log(setTasks)
   }
 
   return(
@@ -54,12 +72,12 @@ export function App(){
           <div className={styles.info}>
             <div className={styles.created}>
               Tarefas criadas
-              <div className={styles.counter}>0</div>
+              <div className={styles.counter}>{tasks.length}</div>
             </div>
 
             <div className={styles.done}>
               Concluídas
-              <div className={styles.counter}>0</div>
+              <div className={styles.counter}>{completedTasks} de {tasks.length}</div>
             </div>
           </div>
 
@@ -78,8 +96,11 @@ export function App(){
                 return(
                   <Task
                   key={task.id}
+                  taskId={task.id}
+                  isDone={task.isDone}
                   taskName={task.name}
                   onRemoveTask={removeTask}
+                  onToggleIsTaskCompleted={toggleIsTaskCompleted}
                   />
                 )
               })}

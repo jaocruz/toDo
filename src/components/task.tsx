@@ -1,23 +1,35 @@
 import styles from "./task.module.css"
 
+import { CheckBox } from "./checkbox"
 import { ButtonIcon } from "./buttonIcon"
-import { CheckBox, CheckBoxProps } from "./checkbox"
+
 import { useState } from "react"
 
-export function Task({  }){
+interface TaskProps{
+   taskName: string
+   onRemoveTask: (task: string) => void
+}
+
+export function Task({ taskName, onRemoveTask }: TaskProps){
    const [isDone, setIsDone] = useState(false)
 
    function handleIsDone(){
       setIsDone(!isDone)
    }
 
+   function handleRemoveTask(){
+      onRemoveTask(taskName)
+   }
+
    return(
       <div className={styles.container}>
          <CheckBox isDone={isDone} handleIsDone={handleIsDone}/>
 
-         <p className={isDone ? styles.checked : styles.normal}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
+         <p className={isDone ? styles.checked : styles.normal}>
+            {taskName}
+         </p>
 
-         <ButtonIcon/>
+         <ButtonIcon onClick={handleRemoveTask}/>
       </div>
    )
 }

@@ -1,0 +1,20 @@
+.container{
+   padding: 1rem;
+   border-radius: 0.5rem;
+   background: var(--gray-500);
+
+   display: flex;
+   gap: 0.75rem;
+}
+
+.container > p {
+   font-size: 0.875rem;
+}
+
+.checked{
+   text-decoration: line-through;
+}
+
+.normal{
+   color: var(--gray-100);
+}

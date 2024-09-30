@@ -1,0 +1,22 @@
+.buttonIcon{
+   width: 1.5rem;
+   height: 1.5rem;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+   border: 0;
+   background: none;
+
+   border-radius: 0.25rem;
+   color: var(--gray-300);
+
+   cursor: pointer;
+   transition: background 0.1s ease-in-out;
+}
+
+.buttonIcon:hover{
+   color: var(--danger);
+   background: var(--gray-400);
+}

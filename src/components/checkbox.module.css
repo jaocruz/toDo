@@ -1,0 +1,68 @@
+.checked{
+   width: 1.5rem;
+   height: 1.5rem;
+
+   display: flex;
+   position: relative;
+
+   align-items: center;
+   justify-content: center;
+
+   transition: color 0.1s ease-in-out;
+}
+
+.checkedIcon{
+   cursor: pointer;
+   color: var(--purple-dark);
+
+   position: absolute;
+   transition: color 0.1s ease-in-out;
+}
+
+.checkedBackground{
+   width: 0.7rem;
+   height: 0.7rem;
+   border-radius: 999px;
+   background: white;
+}
+
+.checkedIcon:hover{
+   color: var(--purple);
+}
+
+.empty{
+   width: 1.5rem;
+   height: 1.5rem;
+
+   display: flex;
+   position: relative;
+
+   align-items: center;
+   justify-content: center;
+
+   transition: color 0.1s ease-in-out;
+}
+
+.emptyIcon{
+   cursor: pointer;
+   color: var(--blue);
+
+   position: absolute;
+   transition: color 0.1s ease-in-out;
+}
+
+.teste{
+   width: 0.7rem;
+   height: 0.7rem;
+   border-radius: 999px;
+   cursor: pointer;
+}
+
+.empty:hover .emptyIcon{
+   color: var(--blue-dark);
+}
+
+.empty:hover .teste{
+   opacity: 20%;
+   background: var(--blue-dark);
+}

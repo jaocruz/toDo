@@ -15,27 +15,44 @@ import { useState } from "react"
 const tasksToDo = [
   {
     id: 1,
-    isDone: false,
-    name: "pegar dados da task"
+    isDone: true,
+    name: "criar uma nova task"
   },
 
   {
     id: 2,
-    isDone: false,
-    name: "terminar desafio"
+    isDone: true,
+    name: "fazer commit da ultima funcionalidade desenvolvida"
   },
 
   {
     id: 3,
     isDone: false,
-    name: "enviar repositório"
+    name: "enviar repositório para o github e posteriormente para a Rocketseat"
   }
 ]
 
 export function App(){
   const [tasks, setTasks] = useState(tasksToDo)
 
+  const [newTask, setNewTask] = useState("")
+
   const completedTasks = tasks.filter(task => task.isDone).length
+
+  function addNewTask(){
+    const newTaskInfo = {
+      id: tasks.length + 1,
+      isDone: false,
+      name: newTask
+    }
+
+    setTasks([...tasks, newTaskInfo])
+    setNewTask("")
+  }
+
+  function handleNewTaskChange(event: React.ChangeEvent<HTMLInputElement>){
+    setNewTask(event.target.value)
+  }
 
   function removeTask(taskToDelete: string){
     const tasksWithoutDeleteOne = tasks.filter(task => task.name !== taskToDelete)
@@ -64,8 +81,8 @@ export function App(){
 
       <div className={styles.page}>
         <div className={styles.newTask}>
-          <Input/>
-          <Button/>
+          <Input onChange={handleNewTaskChange} value={newTask}/>
+          <Button onClick={addNewTask}/>
         </div>
 
         <div className={styles.tasks}>

@@ -1,9 +1,9 @@
 import styles from "./input.module.css"
 
-export function Input(){
+export function Input({...props}){
    return(
       <div className={styles.inputBackground}>
-         <input placeholder="Adicione uma tarefa" type="text" />
+         <input {...props} placeholder="Adicione uma tarefa" type="text" />
       </div>
    )
 }

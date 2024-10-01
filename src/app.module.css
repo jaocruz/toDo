@@ -25,6 +25,8 @@
 .page{
    display: grid;
    grid-template-columns: 46rem;
+
+   margin-bottom: 3rem;
    justify-content: center;
 }
 
@@ -104,4 +106,15 @@
    flex-direction: column;
    
    gap: 0.75rem;
+}
+
+@media (max-width: 768px){
+   html{
+      font-size: 87.5%;
+   }
+
+   .page{
+      padding: 0 1.25rem;
+      grid-template-columns: 1fr;
+   }
 }
